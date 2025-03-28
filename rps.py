@@ -4,36 +4,25 @@
 
 import random
 
-# Loop to repeatedly play the game until player decides to quit
-while True: 
-    user_action = input("Enter throw (rock, paper, scissors), or 'quit' to exit: ").lower()
+user_action = input("Enter throw (rock, paper, scissors): ")
+ai_action = random.choice(["rock", "paper", "scissors"])
 
-    if user_action == 'quit':
-        print("Thanks for playing!")
-        break
+print(f"\nYou chose {user_action}, AI chose {ai_action}.\n")
 
-    if user_action not in ["rock", "paper", "scissors"]:
-        print("Invalid input! Please enter 'rock', 'paper', or 'scissors'.")
-        continue
-
-    ai_action = random.choice(["rock", "paper", "scissors"])
-
-    print(f"\nYou chose {user_action}, AI chose {ai_action}.\n")
-
-    if user_action == ai_action:
-        print(f"Both players selected {user_action}. It's a tie!")
-    elif user_action == "rock":
-        if ai_action == "scissors":
-            print("Rock smashes scissors! You win!")
-        else:
-            print("Paper covers rock! You lose.")
-    elif user_action == "paper":
-        if ai_action == "rock":
-            print("Paper covers rock! You win!")
-        else:
-            print("Scissors cuts paper! You lose.")
-    elif user_action == "scissors":
-        if ai_action == "paper":
-            print("Scissors cuts paper! You win!")
-        else:
-            print("Rock smashes scissors! You lose.")
+if user_action == ai_action:
+    print(f"Both players selected {user_action}. It's a tie!")
+elif user_action == "rock":
+    if ai_action == "scissors":
+        print("Rock smashes scissors! You win!")
+    else:
+        print("Paper covers rock! You lose.")
+elif user_action == "paper":
+    if ai_action == "rock":
+        print("Paper covers rock! You win!")
+    else:
+        print("Scissors cuts paper! You lose.")
+elif user_action == "scissors":
+    if ai_action == "paper":
+        print("Scissors cuts paper! You win!")
+    else:
+        print("Rock smashes scissors! You lose.")
